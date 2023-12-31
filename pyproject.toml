@@ -1,0 +1,45 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+# --- isort
+
+[tool.isort]
+profile = "black"
+src_paths = ["aoc"]
+known_first_party = ["aoc"]
+
+
+# --- poetry
+
+[tool.poetry]
+name = "advent-of-code"
+version = "1.33.7"
+description = "Advent of Code"
+authors = []
+packages = [
+    { include = "aoc"},
+]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+cairocffi = "*"
+igraph = "*"
+matplotlib = "*"
+matplotlib-stubs = "*"
+more_itertools = "*"
+parse = "*"
+#sympy = "*"
+yachalk = "*"
+
+#[tool.poetry.group.dev.dependencies]
+autopep8 = "*"
+flake8 = "*"
+isort = { version = "*", extras = ["pyproject"] }
+mypy = "*"
+pylint = "*"
+pytest = "*"
+
+[tool.poetry.scripts]
+solve = "aoc.cli:main"
